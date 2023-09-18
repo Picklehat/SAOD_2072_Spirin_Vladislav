@@ -25,7 +25,7 @@
             length--;
             return topElement;
         }
-        public T Top()
+        public T Peek()
         {
             if (IsEmpty()) { throw new InvalidOperationException("Stack is empty.");}
             return elem[length - 1];
