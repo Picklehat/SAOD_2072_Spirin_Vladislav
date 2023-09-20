@@ -35,6 +35,7 @@ namespace MyStack
             {
                 stack.Push(Convert.ToInt32(pushItemTextBox.Text));
                 ShowStack();
+                peekItemListBox.Items.Clear();
             }
             catch
             {
@@ -49,6 +50,7 @@ namespace MyStack
                 popItemListBox.Items.Clear();
                 popItemListBox.Items.Add(stack.Pop());
                 ShowStack();
+                peekItemListBox.Items.Clear();
             }
             catch
             {
