@@ -2,49 +2,54 @@
 {
     public class MyStack<T>
     {
-        private T[] elem;     
-        private int length;      
-        private int maxLength;   
-        public MyStack(int maxLength)
+        private T[] data;     
+        private int currentIndex;      
+        public int Capacity
         {
-            if (maxLength <= 0) { throw new ArgumentException("Maximum length must be more than 0.");}
-            length = 0;
-            elem = new T[maxLength];
-            this.maxLength = maxLength;
+            get { return data.Length; }
         }
-        public void Push(T element)
+        public int Count
         {
-            if (length == maxLength) { throw new InvalidOperationException("Stack is full.");}
-            elem[length] = element;
-            length++;
+            get { return currentIndex; }
+        }
+        public MyStack(int Capacity)
+        {
+            if (Capacity <= 0) { throw new ArgumentException("Maximum currentIndex must be more than 0.");}
+            currentIndex = 0;
+            data = new T[Capacity];
+        }
+        public void Push(T item)
+        {
+            if (currentIndex == Capacity) { throw new InvalidOperationException("Stack is full.");}
+            data[currentIndex] = item;
+            currentIndex++;
         }
         public T Pop()
         {
             if (IsEmpty()) { throw new InvalidOperationException("Stack is empty.");}
-            T topElement = elem[length - 1];
-            length--;
-            return topElement;
+            currentIndex--;
+            return data[currentIndex]; ;
         }
         public T Peek()
         {
             if (IsEmpty()) { throw new InvalidOperationException("Stack is empty.");}
-            return elem[length - 1];
+            return data[currentIndex - 1];
         }
 
         public T[] Values()
         {
-            T[] temp = new T[length];
-            for (int i = 0; i < length; i++)
-                temp[i] = elem[i];
+            T[] temp = new T[currentIndex];
+            for (int i = 0; i < currentIndex; i++)
+                temp[i] = data[i];
             return temp;
         }
         public void Clear()
         {
-            length = 0;
+            currentIndex = 0;
         }
         public bool IsEmpty()
         {
-            return length == 0;
+            return currentIndex == 0;
         }
     }
 }
