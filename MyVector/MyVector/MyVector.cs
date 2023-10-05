@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -8,8 +9,17 @@ using System.Threading.Tasks;
 
 namespace MyVector
 {
-    internal class MyVector<T>
+    internal class MyVector<T>:IEnumerable<T>
     {
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new MyVectorEnum<T>(_data, size);
+        }
+
         private T[] _data;
         private int size;
 
@@ -80,6 +90,7 @@ namespace MyVector
                 temp[i] = _data[i];
             _data = temp;
         }
+
 
         public T this[int index]
         {

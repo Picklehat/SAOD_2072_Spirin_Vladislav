@@ -8,10 +8,13 @@ namespace MyVector
             outputListBox.Items.Clear();
             capacityListBox.Items.Clear();
             sizeListBox.Items.Clear();
-            for (int i = 0; i < myVector.Size; i++)
-                outputListBox.Items.Add(myVector[i].ToString() + "\n");
+
             capacityListBox.Items.Add($"Вместимость {myVector.Capacity}");
             sizeListBox.Items.Add($"Размер {myVector.Size}");
+            /*for (int i = 0; i < myVector.Size; i++)
+                outputListBox.Items.Add(myVector[i].ToString() + "\n");*/
+            foreach (int item in myVector)
+                outputListBox.Items.Add(item.ToString() + "\n");
         }
         public Form1()
         {
@@ -31,7 +34,7 @@ namespace MyVector
             }
             catch
             {
-
+                MessageBox.Show("Некорректный размер вектора");
             }
         }
 
@@ -44,7 +47,7 @@ namespace MyVector
             }
             catch
             {
-
+                MessageBox.Show("Некорректный размер вектора");
             }
         }
 
@@ -57,7 +60,7 @@ namespace MyVector
             }
             catch
             {
-
+                MessageBox.Show("Некорректный размер вектора");
             }
         }
 
@@ -71,7 +74,7 @@ namespace MyVector
             }
             catch
             {
-
+                MessageBox.Show("Некорректный размер вектора");
             }
         }
 
@@ -84,7 +87,7 @@ namespace MyVector
             }
             catch
             {
-
+                MessageBox.Show("Некорректный размер вектора");
             }
         }
 
@@ -97,7 +100,7 @@ namespace MyVector
             }
             catch
             {
-
+                MessageBox.Show("Некорректный размер вектора");
             }
         }
     }
