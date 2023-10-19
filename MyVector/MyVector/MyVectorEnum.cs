@@ -32,7 +32,7 @@ namespace MyVector
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
         }
 
         object IEnumerator.Current

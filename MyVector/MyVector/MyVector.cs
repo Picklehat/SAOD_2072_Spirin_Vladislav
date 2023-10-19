@@ -97,15 +97,12 @@ namespace MyVector
             get 
             {
                 if (index >= size || index < 0) { throw new InvalidOperationException("Index out of range."); }
-                return _data[index]; 
+                return _data[index]; //Метода At нет в тз.
             }
             set
             {
-                if (index >= size || index < 0) { throw new InvalidOperationException("Index out of range."); }
-                _data[index] = value;
+                SetValue(value, index);
             }
         }
-
-
     }
 }

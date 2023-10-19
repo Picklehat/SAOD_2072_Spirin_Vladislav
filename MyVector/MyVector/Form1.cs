@@ -14,7 +14,7 @@ namespace MyVector
             /*for (int i = 0; i < myVector.Size; i++)
                 outputListBox.Items.Add(myVector[i].ToString() + "\n");*/
             foreach (int item in myVector)
-                outputListBox.Items.Add(item.ToString() + "\n");
+                outputListBox.Items.Add(item.ToString());
         }
         public Form1()
         {
@@ -32,9 +32,9 @@ namespace MyVector
                 myVector = new MyVector<int>(Convert.ToInt32(vectorSizeTextBox.Text));
                 showInfo();
             }
-            catch
+            catch (Exception ex) 
             {
-                MessageBox.Show("Некорректный размер вектора");
+                MessageBox.Show($"{ex.Message}");
             }
         }
 
@@ -45,9 +45,9 @@ namespace MyVector
                 myVector.Add(Convert.ToInt32(addItemTextBox.Text));
                 showInfo();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Некорректный размер вектора");
+                MessageBox.Show($"{ex.Message}");
             }
         }
 
@@ -58,9 +58,9 @@ namespace MyVector
                 myVector.SetValue(Convert.ToInt32(itemTextBox.Text), Convert.ToInt32(indexTextBox.Text));
                 showInfo();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Некорректный размер вектора");
+                MessageBox.Show($"{ex.Message}");
             }
         }
 
@@ -72,9 +72,9 @@ namespace MyVector
                 myVector.Resize(Convert.ToInt32(resizeTextBox.Text));
                 showInfo();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Некорректный размер вектора");
+                MessageBox.Show($"{ex.Message}");
             }
         }
 
@@ -85,9 +85,9 @@ namespace MyVector
                 myVector.Reserve(Convert.ToInt32(reserveTextBox.Text));
                 showInfo();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Некорректный размер вектора");
+                MessageBox.Show($"{ex.Message}");
             }
         }
 
@@ -98,9 +98,9 @@ namespace MyVector
                 myVector.ShrinkToFit();
                 showInfo();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Некорректный размер вектора");
+                MessageBox.Show($"{ex.Message}");
             }
         }
     }
