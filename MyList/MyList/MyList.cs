@@ -168,6 +168,12 @@ namespace MyList
         
         public void Insert(int index, T value)
         {
+            if (index == listSize)
+            {
+                Append(value);
+                return;
+            }
+
             if (index >= listSize || index < 0) { throw new InvalidOperationException("Index out of range."); }
             ListNode<T> currentNode = First;
             for (int i = 0; i < index; i++)
@@ -186,12 +192,6 @@ namespace MyList
                 First.Prev = newNode;
                 newNode.Next = First;
                 First = newNode;
-            }
-            else if (currentNode.Equals(Last))
-            {
-                Last.Next = newNode;
-                newNode.Prev = Last;
-                Last = newNode;
             }
             else
             {
