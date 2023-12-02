@@ -69,7 +69,7 @@ namespace MyTree
             }
         }
         //----------------------------------------------------------Проходы-----------------------------------------------------
-        public List<MyTreeNode<T>> CLR()
+        public List<MyTreeNode<T>> CLR()//Прямой обход
         {
             if (root == null) { throw new Exception("tree is not created"); }
             return CLR(root);
@@ -83,7 +83,7 @@ namespace MyTree
                 tempList.AddRange(CLR(node.right));
             return tempList;
         }
-        public List<MyTreeNode<T>> LCR()
+        public List<MyTreeNode<T>> LCR()//Центрированный обход (стандартный для вывода)
         {
             if (root == null) { throw new Exception("tree is not created"); }
             return LCR(root);
@@ -98,23 +98,22 @@ namespace MyTree
                 tempList.AddRange(LCR(node.right));
             return tempList;
         }
-
-        public List<MyTreeNode<T>> RCL()
+        public List<MyTreeNode<T>> LRC()//обратный обход
         {
             if (root == null) { throw new Exception("tree is not created"); }
-            return RCL(root);
+            return LRC(root);
         }
-        private List<MyTreeNode<T>> RCL(MyTreeNode<T> node)
+        private List<MyTreeNode<T>> LRC(MyTreeNode<T> node)
         {
             List<MyTreeNode<T>> tempList = new List<MyTreeNode<T>>();
-            if (node.right != null)
-                tempList.AddRange(RCL(node.right));
-            tempList.Add(node);
             if (node.left != null)
-                tempList.AddRange(RCL(node.left));
+                tempList.AddRange(LRC(node.left));
+            if (node.right != null)
+                tempList.AddRange(LRC(node.right));
+            tempList.Add(node);
             return tempList;
         }
-        public List<MyTreeNode<T>> Across()
+        public List<MyTreeNode<T>> Across()//В ширину
         {
             if (root == null) { throw new Exception("tree is not created"); }
             List<MyTreeNode<T>> resultingList = new List<MyTreeNode<T>>();
@@ -130,21 +129,6 @@ namespace MyTree
                     queue.Enqueue(node.right);
             }
             return resultingList;
-        }
-        public List<MyTreeNode<T>> LRC()
-        {
-            if (root == null) { throw new Exception("tree is not created"); }
-            return LRC(root);
-        }
-        private List<MyTreeNode<T>> LRC(MyTreeNode<T> node)//обход по возрастанию
-        {
-            List<MyTreeNode<T>> tempList = new List<MyTreeNode<T>>();
-            if (node.left != null)
-                tempList.AddRange(LRC(node.left));
-            if (node.right != null)
-                tempList.AddRange(LRC(node.right));
-            tempList.Add(node);
-            return tempList;
         }
         //--------------------------------------------------------------------------------------------------------------------
         public void Delete(T value)
@@ -236,7 +220,7 @@ namespace MyTree
 
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (var item in LRC())
+            foreach (var item in LCR())
             {
                 yield return item.value;
             }

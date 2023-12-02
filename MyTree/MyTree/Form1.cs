@@ -21,6 +21,7 @@ namespace MyTree
             try
             {
                 tree.Insert(Convert.ToInt32(insertTextBox.Text));
+                outputRefresh();
             }
             catch (Exception ex)
             {
@@ -49,6 +50,7 @@ namespace MyTree
             try
             {
                 tree.Delete(Convert.ToInt32(deleteTextBox.Text));
+                outputRefresh();
             }
             catch (Exception ex)
             {
@@ -68,16 +70,7 @@ namespace MyTree
         private void LCRButton_Click(object sender, EventArgs e)
         {
             outputTextBox.Clear();
-            foreach (var item in tree.LCR())//ашипка
-            {
-                outputTextBox.Text += $"|{item.value}| ";
-            }
-        }
-
-        private void RCLButton_Click(object sender, EventArgs e)
-        {
-            outputTextBox.Clear();
-            foreach (var item in tree.RCL())
+            foreach (var item in tree.LRC())
             {
                 outputTextBox.Text += $"|{item.value}| ";
             }

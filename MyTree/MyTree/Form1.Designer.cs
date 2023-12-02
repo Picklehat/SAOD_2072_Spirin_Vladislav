@@ -39,7 +39,6 @@
             outputTextBox = new TextBox();
             CLRButton = new Button();
             LCRButton = new Button();
-            RCLButton = new Button();
             acrossButton = new Button();
             SuspendLayout();
             // 
@@ -149,17 +148,6 @@
             LCRButton.UseVisualStyleBackColor = true;
             LCRButton.Click += LCRButton_Click;
             // 
-            // RCLButton
-            // 
-            RCLButton.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            RCLButton.Location = new Point(507, 261);
-            RCLButton.Name = "RCLButton";
-            RCLButton.Size = new Size(147, 29);
-            RCLButton.TabIndex = 11;
-            RCLButton.Text = "Концевой обход";
-            RCLButton.UseVisualStyleBackColor = true;
-            RCLButton.Click += RCLButton_Click;
-            // 
             // acrossButton
             // 
             acrossButton.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -177,7 +165,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(666, 334);
             Controls.Add(acrossButton);
-            Controls.Add(RCLButton);
             Controls.Add(LCRButton);
             Controls.Add(CLRButton);
             Controls.Add(outputTextBox);
@@ -208,7 +195,6 @@
         private TextBox outputTextBox;
         private Button CLRButton;
         private Button LCRButton;
-        private Button RCLButton;
         private Button acrossButton;
     }
 }
