@@ -1,4 +1,4 @@
-namespace MyList
+namespace MyTree
 {
     internal static class Program
     {
