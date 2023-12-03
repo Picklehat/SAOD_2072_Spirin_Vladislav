@@ -21,6 +21,14 @@ namespace MyHashTable
         805306457, 1610612736, 2147483629};
         private static int fillFactor = 75;
 
+        public TValue this[Tkey key]
+        {
+            get
+            {
+                return Find(key);
+            }
+            private set { }
+        }
         public MyHashTable()
         {
             counter = 0;

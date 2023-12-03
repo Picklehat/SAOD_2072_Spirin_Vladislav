@@ -13,7 +13,7 @@ namespace MyHashTable
             outputListBox.Items.Clear();
             foreach (var item in hashtable)
             {
-                outputListBox.Items.Add($"| Key = {item.Key}, Value = {item.Value}, Hash = {item.Hash}|");
+                outputListBox.Items.Add($"|Hash = {item.Hash}, Key = {item.Key}, Value = {item.Value}|");
             }
         }
         public Form1()
