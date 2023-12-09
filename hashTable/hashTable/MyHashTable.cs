@@ -1,8 +1,10 @@
-﻿using System;
+﻿using hashTable;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -149,10 +151,7 @@ namespace MyHashTable
         }
         public IEnumerator<HashItem<Tkey, TValue>> GetEnumerator()
         {
-            foreach (var item in ToList())
-            {
-                yield return item;
-            }
+            return new MyHashTableEnumerator<Tkey, TValue>(hashItemArr);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -160,11 +159,11 @@ namespace MyHashTable
             return GetEnumerator();
         }
     }
-    public class HashItem<TKey, TValue>
-    {
-        public TKey Key { get; set; }
-        public TValue Value { get; set; }
-        public int Hash { get; set; }
-        public HashItem<TKey, TValue> Child { get; set; }
-    }
+}
+public class HashItem<TKey, TValue>
+{
+    public TKey Key { get; set; }
+    public TValue Value { get; set; }
+    public int Hash { get; set; }
+    public HashItem<TKey, TValue> Child { get; set; }
 }
